@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franco Brondo – Python Automation Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F2EB;
+      --ink: #1A1612;
+      --accent: #6a2fc8;
+      --muted: #7A7268;
+      --rule: #D4CEBF;
+      --card: #EDEAE0;
+      --mono: 'DM Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 4rem 0 2.5rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .header-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-top: 1rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-bar a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .contact-bar a:hover { color: var(--accent); }
+
+    .contact-bar .icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── PERFIL ── */
+    .profile-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 70ch;
+    }
+
+    .keyword-pill {
+      display: inline-block;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.15em 0.55em;
+      margin: 0.15em;
+      color: var(--muted);
+    }
+
+    .pills {
+      margin-top: 1.25rem;
+    }
+
+    /* ── ITEMS ── */
+    .item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .item:last-child { border-bottom: none; }
+
+    .item-main { grid-column: 1; }
+    .item-date {
+      grid-column: 2;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      padding-top: 0.25rem;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .item-org {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .item ul li {
+      font-size: 0.9rem;
+      padding: 0.2rem 0 0.2rem 1.25rem;
+      position: relative;
+      color: #3A3630;
+    }
+
+    .item ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.05em;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .skill-card {
+      background: var(--bg);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .skill-card-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-card-items {
+      font-size: 0.85rem;
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    /* ── IDIOMAS ── */
+    .lang-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .lang-row:last-child { border-bottom: none; }
+
+    .lang-name {
+      font-weight: 500;
+      min-width: 100px;
+    }
+
+    .lang-level {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .lang-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .lang-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ── EDUCACION extra ── */
+    .edu-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-stat {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .edu-stat strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 2rem 0 0;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-align: right;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    header, section {
+      animation: fadeUp 0.55s ease both;
+    }
+
+    section:nth-child(2) { animation-delay: 0.08s; }
+    section:nth-child(3) { animation-delay: 0.16s; }
+    section:nth-child(4) { animation-delay: 0.24s; }
+    section:nth-child(5) { animation-delay: 0.32s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .item { grid-template-columns: 1fr; }
+      .item-date { grid-column: 1; margin-bottom: 0.5rem; }
+      .contact-bar { gap: 1rem; }
+    }
+
+    @media print {
+      nav { display: none; }
+      header { padding: 2rem 0 1.5rem; }
+      section { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#perfil">Perfil</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#educacion">Educación</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#idiomas">Idiomas</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <header>
+    <div class="header-label">Python Automation Developer · Physics</div>
+    <h1>Brondo, Franco Nicolás</h1>
+    <p class="tagline">Río Cuarto, Córdoba, Argentina &nbsp;·&nbsp; Disponible para trabajo remoto</p>
+
+    <div class="contact-bar">
+      <a href="https://wa.me/5493584903237">
+        <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        @BrondoFranco
+      </a>
+      <a href="mailto:francobrondo@gmail.com">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        francobrondo@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/franco-nicolas-brondo-792975134" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/Frank994-droid" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <!-- PERFIL -->
+  <section id="perfil">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Perfil Profesional</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <p class="profile-text">
+    Python Developer con foco en <strong>automatización de procesos</strong> y <strong>web scraping</strong>, con sólida base en matemática y física computacional. 
+    Desarrollo soluciones robustas con Selenium para automatización de tareas repetitivas y extracción o carga de datos, aplicando buenas prácticas de código y control de versiones con Git.
+    Busco integrarme a un equipo donde pueda aportar eficiencia real a través de la automatización y escalar hacia roles de <em>data engineering</em> o <em>backend development</em>.
+    </p>
+
+    <div class="pills">
+      <span class="keyword-pill">Python</span>
+      <span class="keyword-pill">Selenium</span>
+      <span class="keyword-pill">Web Scraping</span>
+      <span class="keyword-pill">Process Automation</span>
+      <span class="keyword-pill">RPA</span>
+      <span class="keyword-pill">NumPy</span>
+      <span class="keyword-pill">Pandas</span>
+      <span class="keyword-pill">Data Analysis</span>
+      <span class="keyword-pill">Git</span>
+      <span class="keyword-pill">GitHub</span>
+      <span class="keyword-pill">HTML/CSS</span>
+      <span class="keyword-pill">LaTeX</span>
+      <span class="keyword-pill">Computational Physics</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section id="experiencia">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Experiencia Laboral</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="item">
+      <div class="item-main">
+        <h3>Docente particular — Física y Matemática</h3>
+        <div class="item-org">Freelance</div>
+        <ul>
+          <li>Clases personalizadas para estudiantes secundarios y universitarios, con foco en resolución de problemas y pensamiento analítico.</li>
+          <li>Desarrollo de material didáctico propio y seguimiento del progreso individual de cada alumno.</li>
+          <li>Habilidades transferibles: comunicación técnica clara, paciencia, descomposición de problemas complejos.</li>
+        </ul>
+      </div>
+      <div class="item-date">2021 — Actualidad</div>
+    </div>
+    <div class="item">
+      <div class="item-main">
+        <h3>Docente de Física y Matemática — Nivel Secundario</h3>
+        <div class="item-org">IPEM Nº 27: "Dr. René Favaloro" · Río Cuarto</div>
+        <ul>
+          <li>Diseño y dictado de clases para grupos de 30 alumnos, comunicando conceptos técnicos complejos de forma clara y accesible.</li>
+          <li>Gestión del aula virtual con Google Classroom: carga de materiales, seguimiento de entregas y comunicación con alumnos.</li>
+          <li>Elaboración de material didáctico propio con LaTeX y TeXmacs.</li>
+        </ul>
+      </div>
+      <div class="item-date">2022 — Actualidad</div>
+    </div>
+
+
+
+
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Proyectos</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="item">
+      <div class="item-main">
+        <h3>Selene 2.0 — Automatización de Ciudadano Digital</h3>
+        <div class="item-org">Proyecto Personal · Python · Selenium · Web Automation</div>
+        <ul>
+          <li>Desarrollo end-to-end de un bot que lee datos desde un archivo CSV exportado de Google Sheets con Pandas y los carga automáticamente en la plataforma gubernamental Ciudadano Digital utilizando la API de Selenium WebDriver.</li>
+          <li>Implementación con Python y Selenium WebDriver: manejo de formularios dinámicos, esperas explícitas, gestión de sesiones y manejo de excepciones.</li>
+          <li>Interfaz de usuario construida con CustomTkinter, permitiendo uso por personas sin conocimientos técnicos.</li>
+          <li>Reducción significativa del tiempo de carga de datos manual para usuarios finales.</li>
+        </ul>
+       
+        <a class="project-link" href="https://github.com/Frank994-droid" target="_blank" rel="noopener">Ver código en GitHub →</a> <br>
+
+        <a class="project-link" href="https://www.instagram.com/selene_2_0" target="_blank" rel="noopener">Ver app en Instagram →</a>
+      </div>
+      <div class="item-date">2023 — Actualidad</div>
+    </div>
+  </section>
+
+  <!-- EDUCACIÓN -->
+  <section id="educacion">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Educación</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="item">
+      <div class="item-main">
+        <h3>Licenciatura en Física</h3>
+        <div class="item-org">Universidad Nacional de Río Cuarto (UNRC)</div>
+        <div class="edu-meta">
+          <div class="edu-stat">
+            <strong>80,28%</strong>
+            Materias aprobadas
+          </div>
+          <div class="edu-stat">
+            <strong>8.2</strong>
+            Promedio (sin aplazos)
+          </div>
+        </div>
+      </div>
+      <div class="item-date">En curso</div>
+    </div>
+
+    <div class="item">
+      <div class="item-main">
+        <h3>Bachiller en Ciencias Naturales</h3>
+        <div class="item-org">Colegio Secundario</div>
+        <div class="edu-meta">
+          <div class="edu-stat">
+            <strong>9.56</strong>
+            Promedio general
+          </div>
+        </div>
+      </div>
+      <div class="item-date">2006 — 2011</div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Habilidades Técnicas</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-label">Lenguajes</div>
+        <div class="skill-card-items">Python<br>HTML / CSS <br> Javascript <br> SQL</div>
+
+      </div>
+      <div class="skill-card">
+      <div class="skill-card-label">Escritura Técnica</div>
+      <div class="skill-card-items">LaTeX<br>TeXmacs</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Automatización & Scraping</div>
+        <div class="skill-card-items">Selenium WebDriver<br>Web Scraping<br>RPA / Process Automation<br>CustomTkinter (GUI)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Data & Ciencia</div>
+        <div class="skill-card-items">NumPy, Matplotlib<br>Pandas<br>Física Computacional<br>Análisis de datos <br> Google Sheets (avanzado)</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Dev Tools</div>
+        <div class="skill-card-items">Git / GitHub<br>Control de versiones<br>Debugging</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Soft Skills</div>
+        <div class="skill-card-items">Comunicación técnica<br>Pensamiento analítico<br>Resolución de problemas<br>Autodidacta</div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section id="idiomas">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Idiomas</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="lang-row">
+      <span class="lang-name">Español</span>
+      <span class="lang-level">Nativo</span>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">Inglés</span>
+      <span class="lang-level">Intermedio-Avanzado · Lectura técnica fluida</span>
+      <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Franco Nicolás Brondo &nbsp;·&nbsp; Actualizado Julio 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
