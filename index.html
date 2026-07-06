@@ -18,11 +18,11 @@
       --serif: 'DM Serif Display', serif;
       --sans: 'DM Sans', sans-serif;
     }
-
+ 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     html { scroll-behavior: smooth; }
-
+ 
     body {
       background: var(--bg);
       color: var(--ink);
@@ -31,14 +31,14 @@
       line-height: 1.65;
       min-height: 100vh;
     }
-
+ 
     /* ── LAYOUT ── */
     .wrapper {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 2rem 4rem;
     }
-
+ 
     /* ── HEADER ── */
     header {
       padding: 4rem 0 2.5rem;
@@ -46,7 +46,7 @@
       margin-bottom: 3rem;
       position: relative;
     }
-
+ 
     .header-label {
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -55,7 +55,7 @@
       color: var(--accent);
       margin-bottom: 1rem;
     }
-
+ 
     h1 {
       font-family: var(--serif);
       font-size: clamp(2.8rem, 6vw, 4.5rem);
@@ -63,12 +63,12 @@
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
-
+ 
     h1 em {
       font-style: italic;
       color: var(--accent);
     }
-
+ 
     .tagline {
       font-family: var(--mono);
       font-size: 0.8rem;
@@ -76,14 +76,14 @@
       letter-spacing: 0.08em;
       margin-top: 1rem;
     }
-
+ 
     .contact-bar {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       margin-top: 2rem;
     }
-
+ 
     .contact-bar a {
       font-family: var(--mono);
       font-size: 0.75rem;
@@ -95,15 +95,15 @@
       gap: 0.4rem;
       transition: color 0.2s;
     }
-
+ 
     .contact-bar a:hover { color: var(--accent); }
-
+ 
     .contact-bar .icon {
       width: 14px;
       height: 14px;
       fill: currentColor;
     }
-
+ 
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -114,7 +114,7 @@
       padding: 0.75rem 0;
       margin-bottom: 3rem;
     }
-
+ 
     .nav-inner {
       max-width: 900px;
       margin: 0 auto;
@@ -122,7 +122,7 @@
       display: flex;
       gap: 2rem;
     }
-
+ 
     nav a {
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -132,48 +132,48 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
+ 
     nav a:hover { color: var(--accent); }
-
+ 
     /* ── SECTIONS ── */
     section {
       margin-bottom: 3.5rem;
     }
-
+ 
     .section-header {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin-bottom: 1.75rem;
     }
-
+ 
     .section-num {
       font-family: var(--mono);
       font-size: 0.65rem;
       color: var(--accent);
       letter-spacing: 0.1em;
     }
-
+ 
     h2 {
       font-family: var(--serif);
       font-size: 1.55rem;
       font-weight: 400;
       letter-spacing: -0.01em;
     }
-
+ 
     .section-rule {
       flex: 1;
       height: 1px;
       background: var(--rule);
     }
-
+ 
     /* ── PERFIL ── */
     .profile-text {
       font-size: 1.05rem;
       line-height: 1.8;
       max-width: 70ch;
     }
-
+ 
     .keyword-pill {
       display: inline-block;
       background: var(--card);
@@ -186,11 +186,11 @@
       margin: 0.15em;
       color: var(--muted);
     }
-
+ 
     .pills {
       margin-top: 1.25rem;
     }
-
+ 
     /* ── ITEMS ── */
     .item {
       display: grid;
@@ -199,9 +199,9 @@
       padding: 1.5rem 0;
       border-bottom: 1px solid var(--rule);
     }
-
+ 
     .item:last-child { border-bottom: none; }
-
+ 
     .item-main { grid-column: 1; }
     .item-date {
       grid-column: 2;
@@ -211,14 +211,14 @@
       white-space: nowrap;
       padding-top: 0.25rem;
     }
-
+ 
     h3 {
       font-family: var(--sans);
       font-size: 1rem;
       font-weight: 500;
       margin-bottom: 0.2rem;
     }
-
+ 
     .item-org {
       font-family: var(--mono);
       font-size: 0.72rem;
@@ -226,19 +226,19 @@
       letter-spacing: 0.06em;
       margin-bottom: 0.75rem;
     }
-
+ 
     .item ul {
       list-style: none;
       padding: 0;
     }
-
+ 
     .item ul li {
       font-size: 0.9rem;
       padding: 0.2rem 0 0.2rem 1.25rem;
       position: relative;
       color: #3A3630;
     }
-
+ 
     .item ul li::before {
       content: '→';
       position: absolute;
@@ -246,7 +246,7 @@
       color: var(--accent);
       font-size: 0.8rem;
     }
-
+ 
     .project-link {
       display: inline-block;
       margin-top: 0.6rem;
@@ -259,9 +259,9 @@
       padding-bottom: 0.05em;
       transition: color 0.2s, border-color 0.2s;
     }
-
+ 
     .project-link:hover { color: var(--accent); border-color: var(--accent); }
-
+ 
     /* ── SKILLS GRID ── */
     .skills-grid {
       display: grid;
@@ -270,12 +270,12 @@
       background: var(--rule);
       border: 1px solid var(--rule);
     }
-
+ 
     .skill-card {
       background: var(--bg);
       padding: 1.25rem 1.5rem;
     }
-
+ 
     .skill-card-label {
       font-family: var(--mono);
       font-size: 0.62rem;
@@ -284,13 +284,13 @@
       color: var(--accent);
       margin-bottom: 0.6rem;
     }
-
+ 
     .skill-card-items {
       font-size: 0.85rem;
       color: var(--ink);
       line-height: 1.7;
     }
-
+ 
     /* ── IDIOMAS ── */
     .lang-row {
       display: flex;
@@ -299,20 +299,20 @@
       padding: 0.9rem 0;
       border-bottom: 1px solid var(--rule);
     }
-
+ 
     .lang-row:last-child { border-bottom: none; }
-
+ 
     .lang-name {
       font-weight: 500;
       min-width: 100px;
     }
-
+ 
     .lang-level {
       font-family: var(--mono);
       font-size: 0.72rem;
       color: var(--muted);
     }
-
+ 
     .lang-bar {
       flex: 1;
       height: 3px;
@@ -320,13 +320,13 @@
       border-radius: 2px;
       overflow: hidden;
     }
-
+ 
     .lang-fill {
       height: 100%;
       background: var(--accent);
       border-radius: 2px;
     }
-
+ 
     /* ── EDUCACION extra ── */
     .edu-meta {
       display: flex;
@@ -334,13 +334,13 @@
       margin-top: 0.5rem;
       flex-wrap: wrap;
     }
-
+ 
     .edu-stat {
       font-family: var(--mono);
       font-size: 0.7rem;
       color: var(--muted);
     }
-
+ 
     .edu-stat strong {
       display: block;
       font-size: 1.1rem;
@@ -348,7 +348,60 @@
       font-family: var(--serif);
       font-weight: 400;
     }
-
+ 
+    /* ── CURSOS ── */
+    .curso-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+ 
+    .curso-item:last-child { border-bottom: none; }
+ 
+    .curso-info { flex: 1; min-width: 200px; }
+ 
+    .curso-titulo {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+ 
+    .curso-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+ 
+    .curso-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.1em;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+ 
+    .curso-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+ 
+    .curso-link:hover { color: var(--accent); border-color: var(--accent); }
+ 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--rule);
@@ -359,29 +412,29 @@
       letter-spacing: 0.08em;
       text-align: right;
     }
-
+ 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
+ 
     header, section {
       animation: fadeUp 0.55s ease both;
     }
-
+ 
     section:nth-child(2) { animation-delay: 0.08s; }
     section:nth-child(3) { animation-delay: 0.16s; }
     section:nth-child(4) { animation-delay: 0.24s; }
     section:nth-child(5) { animation-delay: 0.32s; }
-
+ 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       .item { grid-template-columns: 1fr; }
       .item-date { grid-column: 1; margin-bottom: 0.5rem; }
       .contact-bar { gap: 1rem; }
     }
-
+ 
     @media print {
       nav { display: none; }
       header { padding: 2rem 0 1.5rem; }
@@ -390,7 +443,7 @@
   </style>
 </head>
 <body>
-
+ 
 <nav>
   <div class="nav-inner">
     <a href="#perfil">Perfil</a>
@@ -398,17 +451,18 @@
     <a href="#proyectos">Proyectos</a>
     <a href="#educacion">Educación</a>
     <a href="#habilidades">Habilidades</a>
+    <a href="#cursos">Cursos</a>
     <a href="#idiomas">Idiomas</a>
   </div>
 </nav>
-
+ 
 <div class="wrapper">
-
+ 
   <header>
     <div class="header-label">Python Automation Developer · Physics</div>
     <h1>Brondo, Franco Nicolás </h1>
     <p class="tagline">Río Cuarto, Córdoba, Argentina &nbsp;·&nbsp; Disponible para trabajo remoto</p>
-
+ 
     <div class="contact-bar">
       <a href="https://wa.me/5493584903237">
         <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -428,7 +482,7 @@
       </a>
     </div>
   </header>
-
+ 
   <!-- PERFIL -->
   <section id="perfil">
     <div class="section-header">
@@ -436,13 +490,13 @@
       <h2>Perfil Profesional</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <p class="profile-text">
     Python Developer con foco en <strong>automatización de procesos</strong> y <strong>web scraping</strong>, con sólida base en matemática y física computacional. 
     Desarrollo soluciones robustas con Selenium para automatización de tareas repetitivas y extracción o carga de datos, aplicando buenas prácticas de código y control de versiones con Git.
     Busco integrarme a un equipo donde pueda aportar eficiencia real a través de la automatización y escalar hacia roles de <em>data engineering</em> o <em>backend development</em>.
     </p>
-
+ 
     <div class="pills">
       <span class="keyword-pill">Python</span>
       <span class="keyword-pill">Selenium</span>
@@ -459,7 +513,7 @@
       <span class="keyword-pill">Computational Physics</span>
     </div>
   </section>
-
+ 
   <!-- EXPERIENCIA -->
   <section id="experiencia">
     <div class="section-header">
@@ -467,7 +521,7 @@
       <h2>Experiencia Laboral</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <div class="item">
       <div class="item-main">
         <h3>Docente particular — Física y Matemática</h3>
@@ -492,12 +546,12 @@
       </div>
       <div class="item-date">2022 — Actualidad</div>
     </div>
-
-
-
-
+ 
+ 
+ 
+ 
   </section>
-
+ 
   <!-- PROYECTOS -->
   <section id="proyectos">
     <div class="section-header">
@@ -505,7 +559,7 @@
       <h2>Proyectos</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <div class="item">
       <div class="item-main">
         <h3>Selene 2.0 — Automatización de Ciudadano Digital</h3>
@@ -518,13 +572,13 @@
         </ul>
        
         <a class="project-link" href="https://github.com/Frank994-droid" target="_blank" rel="noopener">Ver código en GitHub →</a> <br>
-
+ 
         <a class="project-link" href="https://www.instagram.com/selene_2_0" target="_blank" rel="noopener">Ver app en Instagram →</a>
       </div>
       <div class="item-date">2023 — Actualidad</div>
     </div>
   </section>
-
+ 
   <!-- EDUCACIÓN -->
   <section id="educacion">
     <div class="section-header">
@@ -532,7 +586,7 @@
       <h2>Educación</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <div class="item">
       <div class="item-main">
         <h3>Licenciatura en Física</h3>
@@ -550,7 +604,7 @@
       </div>
       <div class="item-date">En curso</div>
     </div>
-
+ 
     <div class="item">
       <div class="item-main">
         <h3>Bachiller en Ciencias Naturales</h3>
@@ -565,7 +619,7 @@
       <div class="item-date">2006 — 2011</div>
     </div>
   </section>
-
+ 
   <!-- HABILIDADES -->
   <section id="habilidades">
     <div class="section-header">
@@ -573,12 +627,12 @@
       <h2>Habilidades Técnicas</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <div class="skills-grid">
       <div class="skill-card">
         <div class="skill-card-label">Lenguajes</div>
         <div class="skill-card-items">Python<br>HTML / CSS <br> Javascript <br> SQL</div>
-
+ 
       </div>
       <div class="skill-card">
       <div class="skill-card-label">Escritura Técnica</div>
@@ -603,7 +657,7 @@
       
     </div>
   </section>
-
+ 
   <!-- CURSOS -->
 <section id="cursos">
   <div class="section-header">
@@ -611,7 +665,7 @@
     <h2>Cursos</h2>
     <div class="section-rule"></div>
   </div>
-
+ 
   <div class="curso-item">
     <div class="curso-info">
       <h3 class="curso-titulo">Programa Digitalers 2025</h3>
@@ -625,13 +679,13 @@
       Ver certificado
     </a>
   </div>
-
+ 
   <!-- Repetir .curso-item para cada curso adicional -->
-
+ 
 </section>
-
+ 
     
-
+ 
   <!-- IDIOMAS -->
   <section id="idiomas">
     <div class="section-header">
@@ -639,7 +693,7 @@
       <h2>Idiomas</h2>
       <div class="section-rule"></div>
     </div>
-
+ 
     <div class="lang-row">
       <span class="lang-name">Español</span>
       <span class="lang-level">Nativo</span>
@@ -651,11 +705,11 @@
       <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
     </div>
   </section>
-
+ 
   <footer>
     <p>Franco Nicolás Brondo &nbsp;·&nbsp; Actualizado Julio 2026</p>
   </footer>
-
+ 
 </div>
 </body>
 </html>
